@@ -1,13 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Never Gonna Give You Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Leon Hafner - Bioinformatics & Computational Biology">
+    <meta name="author" content="Leon Hafner">
+    <title>Leon Hafner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-text: #666;
+            --bg-color: #fff;
+            --sidebar-width: 300px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        header {
+            width: var(--sidebar-width);
+            padding: 40px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #eee;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img-container {
+            width: 180px;
+            height: 180px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block; 
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-info {
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+
+        /* Main Content Styles */
+        main {
+            margin-left: var(--sidebar-width);
+            padding: 60px 80px;
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Date Style */
+        .date {
+            font-size: 1.1rem;      
+            color: #444;            
+            font-family: 'Courier New', monospace;
+            font-weight: 600;       
+            float: right;
+        }
+
+        .institution {
+            font-style: italic;
+            color: var(--light-text);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul.classic-list {
+            padding-left: 20px;
+        }
+        
+        ul.classic-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Publication Item */
+        .pub-item {
+            margin-bottom: 20px;
+        }
+        
+        .pub-title {
+            font-weight: 600;
+        }
+
+        /* --- SKILLS DESIGN --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .skill-category h3 {
+            font-size: 0.85rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #fff;
+            border: 1px solid #e1e4e8;
+            color: #444;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* --- FOOTER STYLES --- */
+        footer {
+            margin-top: auto;
+            padding-top: 40px;
+            padding-bottom: 20px;
+            border-top: 1px solid #f0f0f0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .footer-credit {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            opacity: 0.9;
+        }
+        
+        /* Gemini Logo SVG Style */
+        .gemini-logo {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        /* Gradient Definition for SVG */
+        .gemini-logo path {
+            fill: url(#gemini-gradient);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            header {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 30px 20px;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 40px 20px;
+            }
+            
+            .date {
+                float: none;
+                display: block;
+                margin-bottom: 4px;
+            }
+        }
+    </style>
 </head>
-<body style="margin:10; background:#ffff; display:flex; align-items:center; justify-content:center; height:100vh;">
-  <img src="https://i.insider.com/602ee9ced3ad27001837f2ac?width=2000&format=jpeg&auto=webp" 
-       alt="Rick Astley"
-       style="max-width:80%; height:auto;">
+<body>
+
+    <header>
+        <div class="profile-img-container">
+            <img src="profile.jpg" alt="Leon Hafner" class="profile-img" onerror="this.style.display='none'">
+        </div>
+        
+        <h1>Leon Hafner</h1>
+        <p class="tagline">MSc Bioinformatics Candidate<br>Technical University of Munich</p>
+
+        <div class="social-links">
+            <a href="mailto:leon.hafner@tum.de" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/LeonHafner" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/leon-hafner" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://orcid.org/0000-0002-2705-1727" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+        </div>
+
+        <div class="contact-info">
+            <p>Munich, Germany</p>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I am a Bioinformatics MSc candidate at the <a href="https://www.tum.de/" target="_blank">Technical University of Munich</a>. My research lies at the intersection of Computational Biology and Machine Learning, with a specific focus on <strong>Generative Modeling</strong> and <strong>Perturbation Prediction</strong>.
+            </p>
+            <p>
+                Currently, I am conducting my Master's Thesis on "Generative Modeling of Cellular Reprogramming with Flow Matching" at the <a href="https://www.helmholtz-munich.de/icb" target="_blank">Helmholtz Institute of Computational Biology</a> in the group of Prof. Dr. Dr. Fabian Theis. My work involves building large-scale bioinformatics pipelines and applying deep learning techniques to single-cell and spatial transcriptomics data.
+            </p>
+        </section>
+        <section id="publications">
+            <h2>Publications</h2>
+            
+            <div class="pub-item">
+                <div class="pub-title">Single-cell differential expression analysis between conditions within nested settings.</div>
+                <div>
+                    <strong>Leon Hafner</strong>, Gregor Sturm, Sarah Lumpp, Mathias Drton, Markus List.
+                </div>
+                <div class="institution">Briefings in Bioinformatics (2025), <a href="https://doi.org/10.1093/bib/bbaf397" target="_blank">doi.org/10.1093/bib/bbaf397</a></div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">Network medicine-based epistasis detection in complex diseases: ready for quantum computing.</div>
+                <div>
+                    Markus Hoffmann, [...], <strong>Leon Hafner</strong>, [...], Markus List, David B. Blumenthal.
+                </div>
+                <div class="institution">Nucleic Acids Research (2024), <a href="https://doi.org/10.1093/nar/gkae697" target="_blank">doi.org/10.1093/nar/gkae697</a></div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="edu-item">
+                <span class="date">2023 - 2025</span>
+                <h3>MSc Bioinformatics</h3>
+                <span class="institution">Technical University of Munich</span>
+            </div>
+            <br>
+            <div class="edu-item">
+                <span class="date">2019 - 2023</span>
+                <h3>BSc Bioinformatics</h3>
+                <span class="institution">Technical University of Munich</span>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+
+                <div class="skill-category">
+                    <h3>Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">Nextflow</span>
+                        <span class="skill-tag">Groovy</span>
+                        <span class="skill-tag">Java</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Environments</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Apptainer</span>
+                        <span class="skill-tag">Slurm</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+                <linearGradient id="gemini-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                    <stop stop-color="#1b1e21" offset="0%" />
+                    <stop stop-color="#3d4957" offset="100%" />
+                    <stop offset="0%" style="stop-color:#4E75F6" />
+                    <stop offset="100%" style="stop-color:#E8607A" />
+                </linearGradient>
+            </svg>
+
+            <div>&copy; 2025 Leon Hafner</div>
+            <div class="footer-credit">
+                <svg class="gemini-logo" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C8 4.41828 11.5817 8 16 8C11.5817 8 8 11.5817 8 16C8 11.5817 4.41828 8 0 8C4.41828 8 8 4.41828 8 0Z" />
+                </svg>
+                Created using Gemini 3 Pro
+            </div>
+        </footer>
+
+    </main>
 </body>
 </html>
