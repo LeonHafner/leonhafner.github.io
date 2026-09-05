@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Leon Hafner - Bioinformatics & Computational Biology">
+    <meta name="description" content="Leon Hafner - Machine Learning for Biology, perturbation modeling, single-cell genomics, and generative modeling">
     <meta name="author" content="Leon Hafner">
     <title>Leon Hafner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -63,7 +63,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block; 
+            display: block;
         }
 
         h1 {
@@ -126,12 +126,11 @@
             text-transform: uppercase;
         }
 
-        /* Date Style */
         .date {
-            font-size: 1.1rem;      
-            color: #444;            
+            font-size: 1.1rem;
+            color: #444;
             font-family: 'Courier New', monospace;
-            font-weight: 600;       
+            font-weight: 600;
             float: right;
         }
 
@@ -140,6 +139,11 @@
             color: var(--light-text);
             margin-bottom: 10px;
             display: block;
+        }
+
+        .research-item,
+        .edu-item {
+            margin-bottom: 28px;
         }
 
         p {
@@ -158,7 +162,7 @@
         ul.classic-list {
             padding-left: 20px;
         }
-        
+
         ul.classic-list li {
             margin-bottom: 8px;
         }
@@ -167,12 +171,12 @@
         .pub-item {
             margin-bottom: 20px;
         }
-        
+
         .pub-title {
             font-weight: 600;
         }
 
-        /* --- SKILLS DESIGN --- */
+        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -215,7 +219,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        /* --- FOOTER STYLES --- */
+        /* Footer */
         footer {
             margin-top: auto;
             padding-top: 40px;
@@ -224,29 +228,6 @@
             text-align: center;
             font-size: 0.85rem;
             color: #888;
-        }
-
-        .footer-credit {
-            margin-top: 8px;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            opacity: 0.9;
-        }
-        
-        /* Gemini Logo SVG Style */
-        .gemini-logo {
-            width: 16px;
-            height: 16px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        
-        /* Gradient Definition for SVG */
-        .gemini-logo path {
-            fill: url(#gemini-gradient);
         }
 
         /* Responsive Design */
@@ -268,7 +249,7 @@
                 margin-left: 0;
                 padding: 40px 20px;
             }
-            
+
             .date {
                 float: none;
                 display: block;
@@ -277,15 +258,18 @@
         }
     </style>
 </head>
-<body>
 
+<body>
     <header>
         <div class="profile-img-container">
             <img src="img/profile.jpg" alt="Leon Hafner" class="profile-img" onerror="this.style.display='none'">
         </div>
-        
+
         <h1>Leon Hafner</h1>
-        <p class="tagline">MSc Bioinformatics Candidate<br>Technical University of Munich</p>
+        <p class="tagline">
+            Machine Learning for Biology<br>
+            Previously @ Arc Institute
+        </p>
 
         <div class="social-links">
             <a href="mailto:mail@leonhafner.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -300,25 +284,67 @@
     </header>
 
     <main>
-        
         <section id="about">
             <h2>About Me</h2>
             <p>
-                I am a Bioinformatics MSc candidate at the <a href="https://www.tum.de/" target="_blank">Technical University of Munich</a>. My research lies at the intersection of Computational Biology and Machine Learning, with a specific focus on <strong>Generative Modeling</strong> and <strong>Perturbation Prediction</strong>.
+                I work at the interface of <strong>machine learning</strong> and <strong>computational biology</strong>,
+                with a focus on perturbation modeling, single-cell genomics, and generative models. Most recently, I was
+                an ML research intern in the Machine Learning Group at
+                <a href="https://arcinstitute.org/" target="_blank">Arc Institute</a>, supervised by Yusuf Roohani and
+                Hani Goodarzi. My work focused on understanding how current perturbation models, which have largely been
+                developed on comparatively simple cell-line perturbation datasets, perform on highly heterogeneous in vivo
+                data spanning many diverse and continuous cell types and cell states.
             </p>
             <p>
-                Currently, I am conducting my Master's Thesis on "Generative Modeling of Cellular Reprogramming with Flow Matching" at the <a href="https://www.helmholtz-munich.de/icb" target="_blank">Helmholtz Institute of Computational Biology</a> in the group of Prof. Dr. Dr. Fabian Theis. My work involves building large-scale bioinformatics pipelines and applying deep learning techniques to single-cell and spatial transcriptomics data.
+                Before Arc, I completed my Master's thesis in
+                <a href="https://www.helmholtz-munich.de/en/icb/research-groups/theis-lab" target="_blank">Fabian Theis's lab at Helmholtz Munich</a>.
+                I developed a conditional flow-matching model to predict cellular responses to transcription-factor
+                perturbations and identified previously unknown TF combinations for reprogramming fibroblasts into dendritic cells.
+            </p>
+            <p>
+                I am convinced that the strongest ML systems for biology come from understanding the biological context
+                deeply and tailoring the modeling approach to it, using prior knowledge and structure in the biological data
+                rather than treating the problem as a generic ML task.
             </p>
         </section>
+
+        <section id="research">
+            <h2>Research Experience</h2>
+
+            <div class="research-item">
+                <span class="date">Mar - Jul 2026</span>
+                <h3>ML Research Intern</h3>
+                <span class="institution">Machine Learning Group, Arc Institute</span>
+                <p>
+                    Evaluated perturbation models on large-scale in vivo single-cell CRISPR screens, focusing on
+                    generalization across heterogeneous cell types and cell states.
+                </p>
+            </div>
+
+            <div class="research-item">
+                <span class="date">Aug 2025 - Jan 2026</span>
+                <h3>Master's Thesis: Generative Modeling of Cellular Reprogramming</h3>
+                <span class="institution">Theis Lab, Helmholtz Munich</span>
+                <p>
+                    Developed a conditional flow-matching model to predict cellular responses to transcription-factor
+                    perturbations and identify previously unknown TF combinations for reprogramming fibroblasts into dendritic cells.
+                </p>
+            </div>
+
+</section>
+
         <section id="publications">
             <h2>Publications</h2>
-            
+
             <div class="pub-item">
                 <div class="pub-title">Single-cell differential expression analysis between conditions within nested settings.</div>
                 <div>
                     <strong>Leon Hafner</strong>, Gregor Sturm, Sarah Lumpp, Mathias Drton, Markus List.
                 </div>
-                <div class="institution">Briefings in Bioinformatics (2025), <a href="https://doi.org/10.1093/bib/bbaf397" target="_blank">doi.org/10.1093/bib/bbaf397</a></div>
+                <div class="institution">
+                    Briefings in Bioinformatics (2025),
+                    <a href="https://doi.org/10.1093/bib/bbaf397" target="_blank">doi.org/10.1093/bib/bbaf397</a>
+                </div>
             </div>
 
             <div class="pub-item">
@@ -326,19 +352,22 @@
                 <div>
                     Markus Hoffmann, [...], <strong>Leon Hafner</strong>, [...], Markus List, David B. Blumenthal.
                 </div>
-                <div class="institution">Nucleic Acids Research (2024), <a href="https://doi.org/10.1093/nar/gkae697" target="_blank">doi.org/10.1093/nar/gkae697</a></div>
+                <div class="institution">
+                    Nucleic Acids Research (2024),
+                    <a href="https://doi.org/10.1093/nar/gkae697" target="_blank">doi.org/10.1093/nar/gkae697</a>
+                </div>
             </div>
         </section>
 
         <section id="education">
             <h2>Education</h2>
-            
+
             <div class="edu-item">
-                <span class="date">2023 - 2025</span>
+                <span class="date">2023 - 2026</span>
                 <h3>MSc Bioinformatics</h3>
                 <span class="institution">Technical University of Munich</span>
             </div>
-            <br>
+
             <div class="edu-item">
                 <span class="date">2019 - 2023</span>
                 <h3>BSc Bioinformatics</h3>
@@ -347,54 +376,34 @@
         </section>
 
         <section id="skills">
-            <h2>Technical Skills</h2>
+            <h2>Technical Expertise</h2>
+
             <div class="skills-grid">
-
                 <div class="skill-category">
-                    <h3>Frameworks</h3>
+                    <h3>ML & Modeling</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
                         <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">Nextflow</span>
-                        <span class="skill-tag">Groovy</span>
-                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Generative Modeling</span>
+                        <span class="skill-tag">Flow Matching</span>
+                        <span class="skill-tag">Perturbation Modeling</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
-                    <h3>Tools & Environments</h3>
+                    <h3>Single-Cell & Genomics</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Apptainer</span>
-                        <span class="skill-tag">Slurm</span>
-                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">scRNA-seq</span>
+                        <span class="skill-tag">CRISPR Screens</span>
+                        <span class="skill-tag">Scanpy / AnnData</span>
+                        <span class="skill-tag">Differential Expression</span>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <footer>
-            <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
-                <linearGradient id="gemini-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-                    <stop stop-color="#1b1e21" offset="0%" />
-                    <stop stop-color="#3d4957" offset="100%" />
-                    <stop offset="0%" style="stop-color:#4E75F6" />
-                    <stop offset="100%" style="stop-color:#E8607A" />
-                </linearGradient>
-            </svg>
-
-            <div>&copy; 2025 Leon Hafner</div>
-            <div class="footer-credit">
-                <svg class="gemini-logo" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 0C8 4.41828 11.5817 8 16 8C11.5817 8 8 11.5817 8 16C8 11.5817 4.41828 8 0 8C4.41828 8 8 4.41828 8 0Z" />
-                </svg>
-                Created using Gemini 3 Pro
-            </div>
+            <div>&copy; 2026 Leon Hafner</div>
         </footer>
-
     </main>
 </body>
 </html>
